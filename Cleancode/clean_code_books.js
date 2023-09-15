@@ -12,14 +12,18 @@ function getBookById(id) {
   }
   return null; 
 }
-function addNewBook(title, price) {
+function addNewBook(books, title, price) {
   let maxId = 0;
   for (let book of books) {
     if (book.id > maxId) {
       maxId = book.id;
     }
   }
-  books.push({ id: maxId + 1, booktitle: title, price: price });
+
+  // Erstelle eine Kopie des ursprünglichen Arrays und füge das neue Buch hinzu
+  const newBooks = [...books, { id: maxId + 1, booktitle: title, price: price }];
+
+  return newBooks;
 }
 
 function listAllBooks() {
@@ -30,5 +34,6 @@ function listAllBooks() {
 
 let myBook = getBookById(2);
 console.log(myBook);
-addNewBook("Fahrenheit 451", 9.2);
+const updatedBooks= addNewBook(books, "Fahrenheit 451", 9.2);
+console.log(updatedBooks);
 listAllBooks();
