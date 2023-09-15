@@ -20,7 +20,6 @@ function addNewBook(books, title, price) {
     }
   }
 
-  // Erstelle eine Kopie des ursprünglichen Arrays und füge das neue Buch hinzu
   const newBooks = [...books, { id: maxId + 1, booktitle: title, price: price }];
 
   return newBooks;
